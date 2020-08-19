@@ -45,7 +45,7 @@ public class secondSearchPage extends BaseTest {
 			password.sendKeys(prop.getProperty("password"));
 			loginBtn.click();
 			//System.out.println("Overall datas:: "+overall.size());
-			int data = overall.size()-40;
+			int data = overall.size()-90;
 			ex.removeColumn("search", 0);
 			ex.addColumn("search", "Search");
 			for(int i=2; i<=data;i++) {
