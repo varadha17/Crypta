@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFCellStyle;
+import org.apache.poi.xssf.usermodel.XSSFCreationHelper;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -71,7 +73,6 @@ public class excel {
 			workbook.write(fos);
 			fos.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}
@@ -96,7 +97,6 @@ public class excel {
 
 			row = sheet.getRow(0);
 			for (int i = 0; i < row.getLastCellNum(); i++) {
-				// System.out.println(row.getCell(i).getStringCellValue().trim());
 				if (row.getCell(i).getStringCellValue().trim().equals(colName))
 					colNum = i;
 			}
@@ -112,10 +112,6 @@ public class excel {
 			if (cell == null)
 				cell = row.createCell(colNum);
 
-			// cell style
-			// CellStyle cs = workbook.createCellStyle();
-			// cs.setWrapText(true);
-			// cell.setCellStyle(cs);
 			cell.setCellValue(data);
 
 			fos = new FileOutputStream(path);
@@ -129,6 +125,85 @@ public class excel {
 			return false;
 		}
 		return true;
+	}
+	
+	public boolean isSheetExist(String sheetName) {
+		int index = workbook.getSheetIndex(sheetName);
+		if (index == -1) {
+			index = workbook.getSheetIndex(sheetName.toUpperCase());
+			if (index == -1)
+				return false;
+			else
+				return true;
+		} else
+			return true;
+	}
+	
+	public boolean removeColumn(String sheetName, int colNum) {
+		try {
+			if (!isSheetExist(sheetName))
+				return false;
+			fis = new FileInputStream(path);
+			workbook = new XSSFWorkbook(fis);
+			sheet = workbook.getSheet(sheetName);
+			XSSFCellStyle style = workbook.createCellStyle();
+			XSSFCreationHelper createHelper = workbook.getCreationHelper();
+			for (int i = 0; i < getRowCount(sheetName); i++) {
+				row = sheet.getRow(i);
+				if (row != null) {
+					cell = row.getCell(colNum);
+					if (cell != null) {
+						cell.setCellStyle(style);
+						row.removeCell(cell);
+					}
+				}
+			}
+			fos = new FileOutputStream(path);
+			workbook.write(fos);
+			fos.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+
+	}
+	
+	public boolean addColumn(String sheetName, String colName) {
+
+		try {
+			fis = new FileInputStream(path);
+			workbook = new XSSFWorkbook(fis);
+			int index = workbook.getSheetIndex(sheetName);
+			if (index == -1)
+				return false;
+
+			XSSFCellStyle style = workbook.createCellStyle();
+			sheet = workbook.getSheetAt(index);
+
+			row = sheet.getRow(0);
+			if (row == null)
+				row = sheet.createRow(0);
+			
+			if (row.getLastCellNum() == -1)
+				cell = row.createCell(0);
+			else
+				cell = row.createCell(row.getLastCellNum());
+
+			cell.setCellValue(colName);
+			cell.setCellStyle(style);
+
+			fos = new FileOutputStream(path);
+			workbook.write(fos);
+			fos.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+
+		return true;
+
 	}
 	
 

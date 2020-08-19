@@ -6,6 +6,7 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -37,7 +38,16 @@ public class BaseTest {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 			
-		} else {
+		} else if(browser.equalsIgnoreCase("headless")){
+			
+			WebDriverManager.chromedriver().setup();
+			ChromeOptions ch = new ChromeOptions();
+			ch.addArguments("window-size=1400x600");
+			ch.addArguments("headless");
+			driver = new ChromeDriver(ch);
+			
+		}
+			else {
 			System.out.println("No Browser");
 		}
 		

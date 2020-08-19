@@ -31,9 +31,6 @@ public class secondSearchPage extends BaseTest {
 	@FindBy(id="login")
 	WebElement loginBtn;
 	
-	@FindBy(xpath="(//span[@id='desc'])[2]")
-	WebElement clickLink;
-	
 	@FindBy(xpath="//div[@class='cata_d products']/following::span[@id='desc']")
 	List<WebElement> overall;
 	
@@ -48,7 +45,9 @@ public class secondSearchPage extends BaseTest {
 			password.sendKeys(prop.getProperty("password"));
 			loginBtn.click();
 			//System.out.println("Overall datas:: "+overall.size());
-			int data = overall.size()-50;
+			int data = overall.size()-90;
+			ex.removeColumn("search", 0);
+			ex.addColumn("search", "Search");
 			for(int i=2; i<=data;i++) {
 				String actualXpath = beforeXpath+i+AfterXpath;
 				String actual = driver.findElement(By.xpath(actualXpath)).getText();
