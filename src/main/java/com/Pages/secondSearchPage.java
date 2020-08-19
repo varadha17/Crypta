@@ -69,7 +69,7 @@ public class secondSearchPage extends BaseTest {
 			password.sendKeys(prop.getProperty("password"));
 			loginBtn.click();
 			//System.out.println("Overall datas:: "+overall.size());
-			int data = overall.size()-92;
+			int data = overall.size()-50;
 			for(int i=2; i<=data;i++) {
 				String actualXpath = beforeXpath+i+AfterXpath;
 				String actual = driver.findElement(By.xpath(actualXpath)).getText();
