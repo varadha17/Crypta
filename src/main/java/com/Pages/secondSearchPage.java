@@ -34,27 +34,6 @@ public class secondSearchPage extends BaseTest {
 	@FindBy(xpath="(//span[@id='desc'])[2]")
 	WebElement clickLink;
 	
-	@FindBy(xpath="(//span[@id='desc'])[3]")
-	WebElement clickLink1;
-	
-	@FindBy(xpath="(//span[@id='desc'])[4]")
-	WebElement clickLink2;
-	
-	@FindBy(xpath="(//span[@id='desc'])[5]")
-	WebElement clickLink3;
-	
-	@FindBy(xpath="(//span[@id='desc'])[6]")
-	WebElement clickLink4;
-	
-	@FindBy(xpath="(//span[@id='desc'])[7]")
-	WebElement clickLink5;
-	
-	@FindBy(xpath="(//span[@id='desc'])[8]")
-	WebElement clickLink6;
-	
-	@FindBy(xpath="(//span[@id='desc'])[9]")
-	WebElement clickLink7;
-	
 	@FindBy(xpath="//div[@class='cata_d products']/following::span[@id='desc']")
 	List<WebElement> overall;
 	
