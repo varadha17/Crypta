@@ -55,18 +55,30 @@ public class secondSearchPage extends BaseTest {
 	@FindBy(xpath="(//span[@id='desc'])[9]")
 	WebElement clickLink7;
 	
+	@FindBy(xpath="//div[@class='cata_d products']/following::span[@id='desc']")
+	List<WebElement> overall;
+	
 	excel ex = new excel("./src/main/java/com/Excelsheets/cryptaSearch.xlsx");
+	
+	String beforeXpath = "(//span[@id='desc'])[";
+	String AfterXpath = "]";
 	
 	public void cryptasignIn() throws InterruptedException, IOException {
 			signIn.click();
 			email.sendKeys(prop.getProperty("username"));
 			password.sendKeys(prop.getProperty("password"));
 			loginBtn.click();
+			//System.out.println("Overall datas:: "+overall.size());
+			int data = overall.size()-92;
+			for(int i=2; i<=data;i++) {
+				String actualXpath = beforeXpath+i+AfterXpath;
+				String actual = driver.findElement(By.xpath(actualXpath)).getText();
+				ex.setCellData("search", "Search", i, actual);
+				//System.out.println(actual);
+				Thread.sleep(4000);
+			}
 			
-			ex.setcellData(1, 0, clickLink.getText(), "search");
-			ex.setcellData(2, 0, clickLink1.getText(), "search");
-			
-			Thread.sleep(6000);
+	
 	}
 	
 
