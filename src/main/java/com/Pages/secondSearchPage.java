@@ -53,7 +53,7 @@ public class secondSearchPage extends BaseTest {
 				String actual = driver.findElement(By.xpath(actualXpath)).getText();
 				ex.setCellData("search", "Search", i, actual);
 				//System.out.println(actual);
-				Thread.sleep(4000);
+				Thread.sleep(2000);
 			}
 			
 	
