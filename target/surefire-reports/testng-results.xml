@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2020-08-20T09:33:14 IST" name="Surefire suite" finished-at="2020-08-20T09:37:47 IST" duration-ms="272875">
+    <groups>
+    </groups>
+    <test started-at="2020-08-20T09:33:14 IST" name="Surefire test" finished-at="2020-08-20T09:37:47 IST" duration-ms="272875">
+      <class name="com.Test.searchPageTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.Test.searchPageTest@145f66e3]" started-at="2020-08-20T09:33:14 IST" name="setup" finished-at="2020-08-20T09:33:24 IST" duration-ms="9818" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="setSearchTextTest()[pri:0, instance:com.Test.searchPageTest@145f66e3]" started-at="2020-08-20T09:33:24 IST" name="setSearchTextTest" finished-at="2020-08-20T09:33:36 IST" duration-ms="11907" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setSearchTextTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.Test.searchPageTest@145f66e3]" started-at="2020-08-20T09:33:36 IST" name="tearDown" finished-at="2020-08-20T09:33:37 IST" duration-ms="585" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.Test.searchPageTest -->
+      <class name="com.Test.secondSearchPageTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.Test.secondSearchPageTest@3023df74]" started-at="2020-08-20T09:33:37 IST" name="setUp" finished-at="2020-08-20T09:33:57 IST" duration-ms="20115" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="cryptasignInTest()[pri:0, instance:com.Test.secondSearchPageTest@3023df74]" started-at="2020-08-20T09:33:57 IST" name="cryptasignInTest" finished-at="2020-08-20T09:37:47 IST" duration-ms="229809" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cryptasignInTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.Test.secondSearchPageTest@3023df74]" started-at="2020-08-20T09:37:47 IST" name="tearDown" finished-at="2020-08-20T09:37:47 IST" duration-ms="600" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.Test.secondSearchPageTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
